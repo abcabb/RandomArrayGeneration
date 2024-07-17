@@ -20,8 +20,9 @@ namespace btkakademicalisma
             for (int i = 0; i < arr_size; i++)
                 arr[i] = ran.Next(1,10);
 
-            for(int i = 0;i < arr_size; i++)   
-                Console.Write(arr[i] +  " ");
+            foreach (int x in arr)
+                Console.WriteLine(x);
+
 
             Console.ReadKey();
         }
