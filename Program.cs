@@ -11,32 +11,17 @@ namespace btkakademicalisma
     {
         static void Main(string[] args)
         {
-            //Declaration
-            var sayilar = new List<int>();
-
-            int x = 55;
-
-            int[] arr1 = new int[] { 100, 200, 300 };
-            //Addition
-            sayilar.Add(10); //You cannot add anything but integers. Because you specified that List is <int>. Lists do have variable datatype safety.
-            sayilar.Add(50);
-            sayilar.Add(x);
-            sayilar.AddRange(new int[] { 20, 30, 40 });
-            sayilar.AddRange(arr1);
-
-            //araya ekleme
-            sayilar.Insert(3, 150);
-            sayilar.InsertRange(4, new int[] { 66, 77, 88 });
-
-            //eleman silme
-            sayilar.RemoveAt(3);
-            sayilar.RemoveAt(sayilar.IndexOf(66));
-            sayilar.Remove(77);
-
-            foreach (int s in sayilar)
-                Console.Write($"{s,-5}"); //-5 her bir elemanın çıktıda kendisinden sonrasına 5 boşluk bırakması s,5 yazsaydı hepsi kendinden önceki yere 5 boşluk bırakırdı.
-
+            double toplam = sayilariTopla(15.5, 26.8, 45.3, 75.6);
+            Console.WriteLine("{0,5:0.##}",toplam); // {0,5:0.##}, toplam değişkenini göstermek için bir format biçimi.
             Console.ReadKey();
+        }
+
+        private static double sayilariTopla(params double[] arr)
+        {
+            double toplam=0.0;
+            foreach (double i in arr)
+                toplam = toplam+i;
+            return toplam;
         }
     }
 }
