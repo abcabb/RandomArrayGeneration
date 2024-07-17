@@ -11,44 +11,35 @@ namespace btkakademicalisma
     {
         static void Main(string[] args)
         {
-            int x = 10;
-            int y = 20;
+            var Sehirler = new List<string>()
+            {
+                "Istanbul",
+                "Ankara",
+                "Samsun",
+                "Sakarya",
+                "Çanakkale"
+            };
+            // Yeni ForEach gösterim formatı :
+            Sehirler.ForEach(s => Console.WriteLine(s));
 
-            Console.WriteLine("{0}, {1}", x, y);
+            Console.WriteLine(new string('-', 50)); // Uzuun uzun uğraşmana gerek yok!
 
-            degistir(x, y);
+            var Iller = Sehirler;
+            Iller.ForEach(i  => Console.WriteLine(i));
 
-            Console.WriteLine("{0}, {1}", x, y);
+            Console.WriteLine();
+            Sehirler.Add("Mugla");
+            Sehirler.ForEach(s => Console.WriteLine(s));
+            Console.WriteLine();
+            Iller.ForEach(i => Console.WriteLine(i)); // Illerde de muğla eklenmiş. Bunun sebebi listelerin Referans Tipli çalışmasıdır.
 
-            //Yukarıda x ve y nin değerlerinin sadece alt fonksiyonun içinde değiştiğini fark ettik, main metodundaki değişkenlerin değil. Bunu şöyle yaparız : 
-
-            Console.WriteLine("---------------------------------");
-
-            refDegistir(ref x, ref y); // Ref x, değişkenlerin adreslerine göre işlem yapılacağını belirtir.
-
-            Console.WriteLine("{0}, {1}", x, y);
+            Console.WriteLine();
+            Iller.Remove("Ankara");
+            Iller.ForEach(i => Console.WriteLine(i));
+            Console.WriteLine();
+            Sehirler.ForEach(s => Console.WriteLine(s)); // Ankara Sehirlerde de silinmiş. Bunun sebebi listelerin Referans Tipli çalışmasıdır.
 
             Console.ReadKey();
-        }
-
-        private static void degistir(int x, int y)
-        {
-            int gecici;
-            gecici = x;
-            x = y;
-            y = gecici;
-
-            Console.WriteLine("{0}, {1}", x, y);
-        }
-
-        private static void refDegistir(ref int x, ref int y)
-        {
-            int gecici;
-            gecici = x;
-            x = y;
-            y = gecici;
-
-            Console.WriteLine("{0}, {1}", x, y);
         }
     }
 }
