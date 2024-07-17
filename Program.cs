@@ -11,17 +11,44 @@ namespace btkakademicalisma
     {
         static void Main(string[] args)
         {
-            double toplam = sayilariTopla(15.5, 26.8, 45.3, 75.6);
-            Console.WriteLine("{0,5:0.##}",toplam); // {0,5:0.##}, toplam değişkenini göstermek için bir format biçimi.
+            int x = 10;
+            int y = 20;
+
+            Console.WriteLine("{0}, {1}", x, y);
+
+            degistir(x, y);
+
+            Console.WriteLine("{0}, {1}", x, y);
+
+            //Yukarıda x ve y nin değerlerinin sadece alt fonksiyonun içinde değiştiğini fark ettik, main metodundaki değişkenlerin değil. Bunu şöyle yaparız : 
+
+            Console.WriteLine("---------------------------------");
+
+            refDegistir(ref x, ref y); // Ref x, değişkenlerin adreslerine göre işlem yapılacağını belirtir.
+
+            Console.WriteLine("{0}, {1}", x, y);
+
             Console.ReadKey();
         }
 
-        private static double sayilariTopla(params double[] arr)
+        private static void degistir(int x, int y)
         {
-            double toplam=0.0;
-            foreach (double i in arr)
-                toplam = toplam+i;
-            return toplam;
+            int gecici;
+            gecici = x;
+            x = y;
+            y = gecici;
+
+            Console.WriteLine("{0}, {1}", x, y);
+        }
+
+        private static void refDegistir(ref int x, ref int y)
+        {
+            int gecici;
+            gecici = x;
+            x = y;
+            y = gecici;
+
+            Console.WriteLine("{0}, {1}", x, y);
         }
     }
 }
