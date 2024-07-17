@@ -10,20 +10,18 @@ namespace btkakademicalisma
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the size of array :");
-            int arr_size = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("--------------------------------------\n" + "Array :");
-            int[] arr = new int[arr_size];
+            int[,] matris = new int[,] { { 12, 13, 14 }, { 15, 16, 17 } , {18, 19, 20} };
 
-            var ran = new Random();
-
-            for (int i = 0; i < arr_size; i++)
-                arr[i] = ran.Next(1,10);
-
-            foreach (int x in arr)
-                Console.WriteLine(x);
-
-
+            for (int i = 0; i < matris.GetLength(0); i++)
+            {
+                for (int j = 0; j < matris.GetLength(1); j++)
+                {
+                    if (i == j)
+                        matris[i, j] = -1;
+                    Console.Write(matris[i, j]+" ");
+                }
+                Console.WriteLine("\n");
+            }
             Console.ReadKey();
         }
     }
