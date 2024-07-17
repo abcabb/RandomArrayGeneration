@@ -11,36 +11,30 @@ namespace btkakademicalisma
     {
         static void Main(string[] args)
         {
-            ArrayList arrayList = new ArrayList()
-            {55, 87,4, false, "Veli"};
+            //Declaration
+            var sayilar = new List<int>();
 
+            int x = 55;
 
-            arrayList.Add("Ahmet");
-            arrayList.Add(250);
-            arrayList.Add(true);
-            arrayList.Add(85.4);
-            arrayList.Add('s');
+            int[] arr1 = new int[] { 100, 200, 300 };
+            //Addition
+            sayilar.Add(10); //You cannot add anything but integers. Because you specified that List is <int>. Lists do have variable datatype safety.
+            sayilar.Add(50);
+            sayilar.Add(x);
+            sayilar.AddRange(new int[] { 20, 30, 40 });
+            sayilar.AddRange(arr1);
 
-            int[] arr1 = new int[] { 22, 33, 44 };
-            arrayList.AddRange(arr1);
+            //araya ekleme
+            sayilar.Insert(3, 150);
+            sayilar.InsertRange(4, new int[] { 66, 77, 88 });
 
-            foreach(var i in arrayList)
-                Console.Write($"{i} ");
+            //eleman silme
+            sayilar.RemoveAt(3);
+            sayilar.RemoveAt(sayilar.IndexOf(66));
+            sayilar.Remove(77);
 
-            Console.WriteLine();
-            Console.WriteLine(arrayList[6]);
-
-            //Changing an element
-            var x = (int)arrayList[6];
-            Console.WriteLine(x+10);
-
-            //Deleting an element
-            arrayList.RemoveAt(6);
-            arrayList.Remove("Veli");
-            arrayList.RemoveRange(0, 1);
-
-            foreach (var i in arrayList)
-                Console.Write($"{i} ");
+            foreach (int s in sayilar)
+                Console.Write($"{s,-5}"); //-5 her bir elemanın çıktıda kendisinden sonrasına 5 boşluk bırakması s,5 yazsaydı hepsi kendinden önceki yere 5 boşluk bırakırdı.
 
             Console.ReadKey();
         }
